@@ -4,7 +4,7 @@ Given("a user visits the login page", () => {
   cy.visit("https://amap.amalitech-dev.net/login");
 });
 
-When("the user enters their credentials", () => {
+When("the user enters valid credentials", () => {
   cy.get("#email").type('assessment.platform@amalitech.com');
   cy.get("#password").type('Amap@123')
   cy.get("#custom-button").click()
