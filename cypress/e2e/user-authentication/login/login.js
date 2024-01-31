@@ -13,3 +13,15 @@ When("the user enters valid credentials", () => {
 Then("the user is navigated to the dashboard", () => {
   cy.url().should('eq', "https://amap.amalitech-dev.net/dashboard/home");
 });
+
+When("the user enters {string} as their email", (email) => {
+  cy.get("#email").type(`${email}{enter}`);
+});
+
+When ("the user enters {string} as their password", (password) => {
+  cy.get("#password").type(`${password}{enter}`);
+})
+
+Then("an error message is displayed", () => {
+  cy.get("#custom-button").should("be.disabled");
+});
