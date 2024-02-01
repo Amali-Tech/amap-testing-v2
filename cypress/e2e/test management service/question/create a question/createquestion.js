@@ -10,6 +10,7 @@ const questiontype = "True or False"
 const selectdomain = "Programming Language"
 const selectCategory = "Senior Developer"
 const selectDifficultylevel = "Advanced"
+const score = 3
 
 
 Given("the user visits the login page", () => {
@@ -49,12 +50,13 @@ Given("the user enter the question form with a piece of information using fields
     question.category().select(selectCategory)
     question.difficultylevel().select(selectDifficultylevel)
     question.radio().check()
+    question.score().clear().type(score)
 })
 
 When("the user clicks on the Save button", ()=>{
-    // pending work here
+    question.savebutton().click({force:true})
 })
 
 Then("the user is successfully created the question and the created question is added to the question windows", ()=>{
-    // pend work here
+    question.url_createdquestion()
 })
