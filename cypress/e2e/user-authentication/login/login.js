@@ -1,4 +1,4 @@
-const {When, Then, Given} = require("@badeball/cypress-cucumber-preprocessor")
+import {When, Then, Given} from "@badeball/cypress-cucumber-preprocessor"
 
 Given("a user visits the login page", () => {
   cy.visit("https://amap.amalitech-dev.net/login");
