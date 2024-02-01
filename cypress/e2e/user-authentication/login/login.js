@@ -14,14 +14,12 @@ Then("the user is navigated to the dashboard", () => {
   cy.url().should('eq', "https://amap.amalitech-dev.net/dashboard/home");
 });
 
-When("the user enters {string} as their email", (email) => {
+When("the user enters {string} as their email and {string} as their password", (email, password) => {
   cy.get("#email").type(`${email}{enter}`);
+  cy.get("#password").type(`${password}{enter}`);
+  cy.get("#custom-button").click({force:true});
 });
 
-When ("the user enters {string} as their password", (password) => {
-  cy.get("#password").type(`${password}{enter}`);
-})
-
 Then("an error message is displayed", () => {
-  cy.get("#custom-button").should("be.disabled");
+    cy.get(".error-ref").should('be.visible')
 });

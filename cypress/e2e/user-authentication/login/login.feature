@@ -1,19 +1,22 @@
 Feature: User authentication
 
-    Background: 
-        Given a user visits the login page
+    Rule: User must have an account, and credentials provided must be valid
 
-    Scenario: User login with valid credentials
-        When the user enters valid credentials
-        Then the user is navigated to the dashboard
+        Background: 
+            Given a user visits the login page
 
-    Scenario Outline: User login with invalid credentials
-        When the user enters "<email>" as their email
-        * the user enters "<password>" as their password
-        Then an error message is displayed
+        Scenario: User login with valid credentials
+            When the user enters valid credentials
+            Then the user is navigated to the dashboard
 
-        Examples:
-            |   email   |   password    |
-            |   mail.com   |   Amap@123  |
-            |  abc@123.com    |    123qwe   |
-            
+        Scenario Outline: User login with invalid credentials
+            When the user enters "<email>" as their email and "<password>" as their password
+            Then an error message is displayed
+
+            Examples:
+                |   email          |   password     |
+                |   user@user.com  |   amAP123!@#   |
+                |   mail.com       |   AbcD@123     |
+                |   abc@123.com    |   123qwe       |
+                |                  |                |
+                
