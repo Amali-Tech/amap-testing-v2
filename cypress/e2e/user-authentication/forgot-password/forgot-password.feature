@@ -7,7 +7,7 @@ Feature: Forgot password
 
         Scenario: User provides a valid email
             When the user enters a valid email
-            Then the user is navigated to the dashboard
+            Then the user is navigated to the resetlink page
 
         Scenario Outline: User provides an invalid email
             When the user enters "<email>" as their email

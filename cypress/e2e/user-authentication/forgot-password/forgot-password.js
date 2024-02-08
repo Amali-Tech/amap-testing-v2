@@ -1,6 +1,6 @@
 const {When, Then, Given} = require("@badeball/cypress-cucumber-preprocessor")
 
-Given("a user visits the login page", () => {
+Given("a user visits the forgot password page", () => {
   cy.visit("https://amap.amalitech-dev.net/forgot-password");
 });
 
@@ -9,9 +9,8 @@ When("the user enters a valid email", () => {
   cy.get("#custom-button").click()
 });
 
-// replace with correct page url
-Then("the user is navigated to the dashboard", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/dashboard/home");
+Then("the user is navigated to the resetlink page", () => {
+  cy.url().should('eq', "https://amap.amalitech-dev.net/resetlink");
 });
 
 When("the user enters {string} as their email", (email) => {
@@ -24,7 +23,7 @@ Then("an error message is displayed", () => {
 });
 
 When("the user clicks on the 'Return to login' button", () => {
-    cy.get("#custom-button").click();
+    cy.get(".forgot-password").click({force:true});
   });
   
   Then("the user is navigated to the login page", () => {
