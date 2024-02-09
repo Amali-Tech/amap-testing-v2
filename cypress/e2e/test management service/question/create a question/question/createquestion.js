@@ -1,6 +1,6 @@
 import { When, Then, Given } from "@badeball/cypress-cucumber-preprocessor"
-import Question from "../../../../page object model/question/create a question"
-import data from "../../../../fixtures/login.json"
+import Question from "../../../../../page object model/question/create a question"
+import data from "../../../../../fixtures/login.json"
 
 const question = new Question();
 
@@ -10,7 +10,7 @@ const questiontype = "True or False"
 const selectdomain = "Programming Language"
 const selectCategory = "Senior Developer"
 const selectDifficultylevel = "Advanced"
-const score = 3
+const score = 2
 
 
 Given("the user visits the login page", () => {
@@ -54,7 +54,7 @@ Given("the user enter the question form with a piece of information using fields
 })
 
 When("the user clicks on the Save button", ()=>{
-    question.savebutton().click({force:true})
+    question.save().should('be.visible').click()
 })
 
 Then("the user is successfully created the question and the created question is added to the question windows", ()=>{

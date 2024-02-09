@@ -60,6 +60,18 @@ class Question {
         return cy.get(':nth-child(2) > .flex > div.ng-star-inserted > div > .radio')
     }
 
+    score(){
+        return cy.get('.w-12')
+    }
+
+    savebutton(){
+        return cy.get('.ng-star-inserted > #custom-button')
+    }
+
+    url_createdquestion(){
+        return cy.url().should("include", "https://amap.amalitech-dev.net/dashboard/apps/questions")
+    }
+
 
 
 
