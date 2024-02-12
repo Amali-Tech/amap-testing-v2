@@ -20,3 +20,6 @@ Feature: User authentication
                 |   abc@123.com    |   123qwe       |
                 |                  |                |
                 
+        Scenario: User clicks on the "Forgot password" button
+            When the user clicks on the 'Forgot password' button
+            Then the user is navigated to the Forgot password page
