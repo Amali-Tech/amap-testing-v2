@@ -10,7 +10,7 @@ When("the user enters a valid email", () => {
 });
 
 Then("the user is navigated to the resetlink page", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/resetlink");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/resetlink`);
 });
 
 When("the user enters {string} as their email", (email) => {
@@ -27,5 +27,5 @@ When("the user clicks on the 'Return to login' button", () => {
 });
   
 Then("the user is navigated to the login page", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/login");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/login`);
 });

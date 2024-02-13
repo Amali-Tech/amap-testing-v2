@@ -11,7 +11,7 @@ When("the user enters valid credentials", () => {
 });
 
 Then("the user is navigated to the dashboard", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/dashboard/home");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/dashboard/home`);
 });
 
 When("the user enters {string} as their email and {string} as their password", (email, password) => {
@@ -29,5 +29,5 @@ When("the user clicks on the 'Forgot password' button", () => {
 });
 
 Then("the user is navigated to the Forgot password page", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/forgot-password");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/forgot-password`);
 });

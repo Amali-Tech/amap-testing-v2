@@ -11,7 +11,7 @@ When("the user enters a valid password", () => {
 });
 
 Then("the user is navigated to the login page", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/login");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/login`);
 });
 
 When("the user enters {string} as their password", (password) => {
