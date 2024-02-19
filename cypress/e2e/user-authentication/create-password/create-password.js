@@ -1,17 +1,17 @@
 const {When, Then, Given} = require("@badeball/cypress-cucumber-preprocessor")
 
 Given("a user is on the create password page", () => {
-  cy.visit("https://amap.amalitech-dev.net/create-password");
+  cy.visit(`${Cypress.env('baseUrl')}/create-password`);
 });
 
 When("the user enters a valid password", () => {
-  cy.get("input").eq(0).type("amAP123!@#");
-  cy.get("input").eq(1).type("amAP123!@#")
+  cy.get("input").eq(0).type(Cypress.env('newPassword'))
+  cy.get("input").eq(1).type(Cypress.env('newPassword'))
   cy.get("#custom-button").click()
 });
 
 Then("the user is navigated to the login page", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/login");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/login`);
 });
 
 When("the user enters {string} as their password", (password) => {

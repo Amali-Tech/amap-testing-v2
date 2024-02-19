@@ -1,17 +1,17 @@
 import {When, Then, Given} from "@badeball/cypress-cucumber-preprocessor"
 
 Given("a user visits the login page", () => {
-  cy.visit("https://amap.amalitech-dev.net/login");
+  cy.visit(`${Cypress.env('baseUrl')}/login`);
 });
 
 When("the user enters valid credentials", () => {
-  cy.get("#email").type('assessment.platform@amalitech.com');
-  cy.get("#password").type('Amap@123')
+  cy.get("#email").type(Cypress.env('email'));
+  cy.get("#password").type(Cypress.env('password'))
   cy.get("#custom-button").click()
 });
 
 Then("the user is navigated to the dashboard", () => {
-  cy.url().should('eq', "https://amap.amalitech-dev.net/dashboard/home");
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/dashboard/home`);
 });
 
 When("the user enters {string} as their email and {string} as their password", (email, password) => {
@@ -21,5 +21,13 @@ When("the user enters {string} as their email and {string} as their password", (
 });
 
 Then("an error message is displayed", () => {
-    cy.get(".error-ref").should('be.visible')
+  cy.get(".error-ref").should('be.visible')
+});
+
+When("the user clicks on the 'Forgot password' button", () => {
+  cy.get(".forgot-password").click({force:true});
+});
+
+Then("the user is navigated to the Forgot password page", () => {
+  cy.url().should('eq', `${Cypress.env('baseUrl')}/forgot-password`);
 });
