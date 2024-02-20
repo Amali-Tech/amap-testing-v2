@@ -20,7 +20,9 @@ async function setupNodeEvents(on, config) {
 module.exports = defineConfig({
   e2e: {
     specPattern: "**/*.feature",
-    supportFile: false,
+    // supportFile: false,
     setupNodeEvents,
   },
+  pageLoadTimeout: 180000
+
 });

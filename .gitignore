@@ -4,3 +4,5 @@ cypress/fixtures/login.json
 cypress/screenshots/**
 
 .eslintcache
+
+cypress.env.json
