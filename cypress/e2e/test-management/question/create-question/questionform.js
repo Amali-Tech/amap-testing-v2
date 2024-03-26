@@ -11,7 +11,7 @@ Given('the user navigates to the login page', () => {
 When(
 	'the user enters {string} email and {string} password in the input field',
 	(email, password) => {
-		cy.login(email, password);
+		cy.loginform(email, password);
 	}
 );
 
@@ -34,15 +34,58 @@ Then('the user is redirected to the question widnows', () => {
 });
 
 Given('the add new question button is provided', () => {
-	cy.get(':nth-child(3) > #custom-button')
-		.contains('Add new question')
-		.should('be.visible');
+	cy.get('.flex.ng-star-inserted')
+		.as('question')
+		.find('app-custombutton')
+		.should('have.length', 3);
 });
 
 When('the user opens the question form', () => {
-	cy.get(':nth-child(3) > #custom-button').as('question').click();
+	cy.get('.flex.ng-star-inserted')
+		.as('question')
+		.find('app-custombutton')
+		.eq(2)
+		.click();
 });
 
 Then('the user is redirected to the question form', () => {
 	cy.url().should('include', '/dashboard/apps/questions/create-questions');
 });
+
+When(
+	'the user enters {string} in the question title, selects {string}, {string}, {string}, {string}, {string}, {string}, {string}, {string}',
+	(
+		title,
+		type,
+		domain,
+		category,
+		difficultylevel,
+		addchoice,
+		addchoice1,
+		addchoice2,
+		score
+	) => {
+		cy.question(
+			title,
+			type,
+			domain,
+			category,
+			difficultylevel,
+			addchoice,
+			addchoice1,
+			addchoice2,
+			score
+		);
+	}
+);
+
+When('the user clicks on Save button', () => {
+	//pending
+});
+
+Then(
+	'the user saved the question and redirected to the question windows',
+	() => {
+		//pending
+	}
+);

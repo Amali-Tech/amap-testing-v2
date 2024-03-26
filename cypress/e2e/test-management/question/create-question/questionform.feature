@@ -10,3 +10,6 @@ Feature: Creation of a question
          Given the add new question button is provided
          When the user opens the question form
          Then the user is redirected to the question form
+         When the user enters 'What is a computer mouse' in the question title, selects 'Multiple Choice', 'JavaScript', 'Senior Developer', 'Beginner', 'good', 'pass', 'excellent', '3'
+         When the user clicks on Save button
+         Then the user saved the question and redirected to the question windows
