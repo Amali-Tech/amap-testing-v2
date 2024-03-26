@@ -5,13 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress run": "npx cypress run",
-    "cypress open": "npx cypress open",
+
+   
     "prepare": "husky || true",
     "lint": "npx eslint --ext .js",
     "lint:fix": "npx eslint --ext .js --fix",
     "format:check": "npx prettier --check cypress",
-    "format": "npx prettier --write cypress"
+    "format": "npx prettier --write cypress",
+    "cypress run": "cypress run",
+    "cypress open": "ypress open"
   },
   "keywords": [],
   "author": "",
